@@ -15,7 +15,7 @@ class WorkSeeder extends Seeder
      */
     public function run()
     {
-        $userId = 1;
+        $userId = 21;
         $date = now()->subDays(30); // 30日前から
 
         for ($i = 0; $i < 30; $i++) {
