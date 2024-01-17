@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->integer('hourly_wage')->nullable();;     // 時給
+            $table->integer('monthly_wage')->nullable();;     // 時給
             $table->timestamps();
         });
     }
