@@ -21,10 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -33,8 +29,11 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/index', [UserController::class, 'showIndex'])->name('index.show');
 Route::get('/home', [WorkController::class, 'showHome'])->name('home.show');
-Route::get('/home/{user}/log', [WorkController::class, 'showLog'])->name('home.log');
+Route::get('/home/log', [WorkController::class, 'showLog'])->name('home.log');
+Route::post('/home/work', [WorkController::class, 'postWorkStart'])->name('home.postWorkStart');
+Route::get('/home/work', [WorkController::class, 'showWorkStart'])->name('home.showWorkStart');
+Route::post('/home/work/end', [WorkController::class, 'postWorkEnd'])->name('home.postWorkEnd');
+Route::get('/home/work/end', [WorkController::class, 'showWorkEnd'])->name('home.showWorkEnd');
 
 require __DIR__.'/auth.php';

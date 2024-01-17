@@ -1,9 +1,10 @@
 <x-app-layout>
-    <x-slot name="title">ホーム</x-slot>
+    <x-slot name="title">勤務終了</x-slot>
     <x-slot name="header">WORKTIME</x-slot>
+
     <main>
         <div class="name">
-            <h1>こんにちは！{{ Auth::user()->name }}さん</h1>
+            <h1>お疲れさまでした！！</h1>
         </div>
         
         <div class="date" id="currentDate">
@@ -14,13 +15,13 @@
             {{ \Carbon\Carbon::now()->format('H:i:s') }}
         </div>
         
-        <form action="/home/work" method="POST">
-            @csrf
-            <input type="hidden" name="work_start" value="{{ now() }}"/>
-            <input type="submit" value="出勤">
-         </form>
+        <div class="work-time">
+            <h1>勤務時間</h1>
+            {{ \Carbon\Carbon::parse($work->work_start)->diff(\Carbon\Carbon::parse($work->work_end))->format('%H:%I:%S') }}
+        </div>
+        
+        <a href="/home">トップページ</a>
     </main>
-
     <script>
         // JavaScriptで時刻をリアルタイムに更新
         function updateClock() {
