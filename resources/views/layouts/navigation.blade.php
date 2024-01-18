@@ -11,7 +11,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="space-x-8 -my-px ml-10 flex">
                     <x-nav-link :href="route('home.show')" :active="request()->routeIs('home.show')">
                         {{ __('ホーム') }}
                     </x-nav-link>
