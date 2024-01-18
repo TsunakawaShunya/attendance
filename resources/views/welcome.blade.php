@@ -11,7 +11,7 @@
     </head>
     <body>
         <main>
-            <header class="bg-sky-600 text-gray-800 font-bold text-center text-3xl">
+            <header class="bg-sky-600 text-gray-800 font-bold font-mono text-center text-3xl">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     WORKTIME
                 </div>

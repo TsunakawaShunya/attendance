@@ -3,24 +3,26 @@
     <x-slot name="header">WORKTIME</x-slot>
 
     <main>
-        <div class="name">
-            <h1>お疲れさまでした！！</h1>
+        <div class="text-gray-800 font-bold font-mono text-center text-3xl">
+            お疲れさまでした！！
         </div>
         
-        <div class="date" id="currentDate">
+        <div class="text-gray-800 font-mono text-right text-base" id="currentDate">
             {{ \Carbon\Carbon::now()->format('Y年n月j日 (D)') }}
         </div>
         
-        <div class="time" id="currentTime">
+        <div class="text-gray-800 font-mono text-right text-base" id="currentTime">
             {{ \Carbon\Carbon::now()->format('H:i:s') }}
         </div>
         
-        <div class="work-time">
-            <h1>勤務時間</h1>
-            {{ \Carbon\Carbon::parse($work->work_start)->diff(\Carbon\Carbon::parse($work->work_end))->format('%H:%I:%S') }}
+        <div class="text-gray-800 font-bold font-mono text-center text-5xl">
+          勤務時間</br>
+          {{ \Carbon\Carbon::parse($work->work_start)->diff(\Carbon\Carbon::parse($work->work_end))->format('%H:%I:%S') }}
         </div>
         
-        <a href="/home">トップページ</a>
+        <div class="text-gray-800 font-mono text-right text-base flex justify-end">
+          <a href="/home">トップページへ</a>
+        </div>
     </main>
     <script>
         // JavaScriptで時刻をリアルタイムに更新
