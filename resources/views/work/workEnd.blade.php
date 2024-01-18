@@ -3,7 +3,7 @@
     <x-slot name="header">WORKTIME</x-slot>
 
     <main>
-        <div class="text-gray-800 font-bold font-mono text-center text-3xl">
+        <div class="text-gray-800 font-bold font-mono text-center text-3xl m-1">
             お疲れさまでした！！
         </div>
         

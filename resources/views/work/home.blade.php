@@ -2,7 +2,7 @@
     <x-slot name="title">ホーム</x-slot>
     <x-slot name="header">WORKTIME</x-slot>
     <main>
-        <div class="text-gray-800 font-bold font-mono text-center text-3xl">
+        <div class="text-gray-800 font-bold font-mono text-center text-3xl m-1">
             こんにちは！{{ Auth::user()->name }}さん
         </div>
         
@@ -15,17 +15,17 @@
         </div>
         <div class="flex justify-center m-5">
             <form action="/home/work" method="POST">
-              @csrf
-              <input type="hidden" name="work_start" value="{{ now() }}"/>
-              <div class="border-4 border-solid border-red-500 bg-red-50 font-mono text-center text-5xl">
-                <input type="submit" value="出勤">
-              </div>
-          </form>
+                @csrf
+                <input type="hidden" name="work_start" value="{{ now() }}"/>
+                <div class="border-4 border-solid border-red-500 bg-red-50 p-2 font-mono text-center text-5xl">
+                    <input type="submit" value="出勤">
+                </div>
+            </form>
         </div>
     </main>
 
     <script>
-        // JavaScriptで時刻をリアルタイムに更新
+        // 時刻をリアルタイムに更新
         function updateClock() {
             let currentDateElement = document.getElementById('currentDate');
             let currentTimeElement = document.getElementById('currentTime');

@@ -15,7 +15,7 @@ class WorkController extends Controller
 
     // 出勤ログへ
     public function showLog() {
-        $works = Work::where("user_id", Auth::id())->get();
+        $works = Work::where("user_id", Auth::id())->orderBy("work_start", "desc")->get();      // 新しい順に取り出す
         //dd($works);
         return view("work.log")->with(["works" => $works]);
     }

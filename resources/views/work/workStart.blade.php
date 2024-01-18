@@ -3,7 +3,7 @@
     <x-slot name="header">WORKTIME</x-slot>
     
     <main>
-        <div class="text-gray-800 font-bold font-mono text-center text-3xl">
+        <div class="text-gray-800 font-bold font-mono text-center text-3xl m-1">
             勤務中
         </div>
 
@@ -19,7 +19,7 @@
             <form action="/home/work/end" method="POST">
                 @csrf
                 <input type="hidden" name="work_end" value="{{ now() }}"/>
-                  <div class="border-4 border-solid border-red-500 bg-red-50 font-mono text-center text-5xl">
+                  <div class="border-4 border-solid border-blue-500 bg-blue-50 p-2 font-mono text-center text-5xl">
                     <input type="submit" value="退勤">
                   </div>
             </form>
