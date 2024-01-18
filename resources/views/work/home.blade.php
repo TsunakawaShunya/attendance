@@ -2,23 +2,26 @@
     <x-slot name="title">ホーム</x-slot>
     <x-slot name="header">WORKTIME</x-slot>
     <main>
-        <div class="name">
-            <h1>こんにちは！{{ Auth::user()->name }}さん</h1>
+        <div class="text-gray-800 font-bold font-mono text-center text-3xl">
+            こんにちは！{{ Auth::user()->name }}さん
         </div>
         
-        <div class="date" id="currentDate">
+        <div class="text-gray-800 font-mono text-right text-base" id="currentDate">
             {{ \Carbon\Carbon::now()->format('Y年n月j日 (D)') }}
         </div>
         
-        <div class="time" id="currentTime">
+        <div class="text-gray-800 font-bold font-mono text-center text-5xl" id="currentTime">
             {{ \Carbon\Carbon::now()->format('H:i:s') }}
         </div>
-        
-        <form action="/home/work" method="POST">
-            @csrf
-            <input type="hidden" name="work_start" value="{{ now() }}"/>
-            <input type="submit" value="出勤">
-         </form>
+        <div class="flex justify-center m-5">
+          <div class="border-4 border-solid border-red-500 bg-red-50 w-3/12 h-3/12 font-mono text-center text-5xl">
+            <form action="/home/work" method="POST">
+                @csrf
+                <input type="hidden" name="work_start" value="{{ now() }}"/>
+                <input type="submit" value="出勤">
+            </form>
+          </div>
+        </div>
     </main>
 
     <script>
