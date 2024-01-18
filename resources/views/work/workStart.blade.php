@@ -16,13 +16,13 @@
         </div>
         
         <div class="flex justify-center m-5">
-          <div class="border-4 border-solid border-blue-500 bg-blue-50 w-3/12 h-3/12 font-mono text-center text-5xl">
             <form action="/home/work/end" method="POST">
                 @csrf
                 <input type="hidden" name="work_end" value="{{ now() }}"/>
-                <input type="submit" value="退勤">
+                  <div class="border-4 border-solid border-red-500 bg-red-50 font-mono text-center text-5xl">
+                    <input type="submit" value="退勤">
+                  </div>
             </form>
-          </div>
         </div>
     </main>
     

@@ -14,13 +14,13 @@
             {{ \Carbon\Carbon::now()->format('H:i:s') }}
         </div>
         <div class="flex justify-center m-5">
-          <div class="border-4 border-solid border-red-500 bg-red-50 w-3/12 h-3/12 font-mono text-center text-5xl">
             <form action="/home/work" method="POST">
-                @csrf
-                <input type="hidden" name="work_start" value="{{ now() }}"/>
+              @csrf
+              <input type="hidden" name="work_start" value="{{ now() }}"/>
+              <div class="border-4 border-solid border-red-500 bg-red-50 font-mono text-center text-5xl">
                 <input type="submit" value="出勤">
-            </form>
-          </div>
+              </div>
+          </form>
         </div>
     </main>
 
