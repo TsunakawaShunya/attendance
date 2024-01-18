@@ -16,7 +16,7 @@ class WorkSeeder extends Seeder
     public function run()
     {
         $userId = 1;
-        $date = now()->subDays(30); // 30日前から
+        $date = now()->subDays(90); // 90日前から
 
         for ($i = 0; $i < 30; $i++) {
             $workStart = $date->copy()->setHours(rand(8, 11))->setMinutes(rand(0, 59));
