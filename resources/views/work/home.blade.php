@@ -13,6 +13,7 @@
         <div class="text-gray-800 font-bold font-mono text-center text-5xl" id="currentTime">
             {{ \Carbon\Carbon::now()->format('H:i:s') }}
         </div>
+        
         <div class="flex justify-center m-5">
             <form action="/home/work" method="POST">
                 @csrf

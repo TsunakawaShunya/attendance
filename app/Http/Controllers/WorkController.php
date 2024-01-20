@@ -37,6 +37,33 @@ class WorkController extends Controller
         return redirect('/home/work');
     }
     
+    // 休憩
+    public function showBreak() {
+        return view("work.break");
+    }
+    
+    // 休憩開始時刻をポスト
+    public function postBreakStart(Request $request) {
+        $break_start = $request->input('break_start');
+
+        $work = Work::where("user_id", Auth::id())->latest("updated_at")->first();
+        $work->break_start = $break_start;
+        $work->save();
+        
+        return redirect('/home/work/break');
+    }
+
+    // 休憩終了時刻をポスト
+    public function postBreakEnd(Request $request) {
+        $break_end = $request->input('break_end');
+
+        $work = Work::where("user_id", Auth::id())->latest("updated_at")->first();
+        $work->break_end = $break_end;
+        $work->save();
+        
+        return redirect('/home/work');
+    }
+
     // 退勤
     public function showWorkEnd() {
         $work = Work::where("user_id", Auth::id())->latest("updated_at")->first();

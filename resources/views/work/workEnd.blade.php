@@ -17,7 +17,10 @@
         
         <div class="text-gray-800 font-bold font-mono text-center text-5xl">
           勤務時間</br>
-          {{ \Carbon\Carbon::parse($work->work_start)->diff(\Carbon\Carbon::parse($work->work_end))->format('%H:%I:%S') }}
+            {{ \Carbon\CarbonInterval::seconds(
+                \Carbon\Carbon::parse($work->work_end)->diffInSeconds(\Carbon\Carbon::parse($work->work_start))
+                - (\Carbon\Carbon::parse($work->break_end)->diffInSeconds(\Carbon\Carbon::parse($work->break_start)))
+            )->cascade()->format('%H:%I:%S') }}
         </div>
         
         <div class="text-gray-800 font-mono text-right text-base flex justify-end">
