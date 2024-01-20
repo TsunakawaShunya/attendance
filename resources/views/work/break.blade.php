@@ -15,21 +15,13 @@
             {{ \Carbon\Carbon::now()->format('H:i:s') }}
         </div>
         
-        <div class="flex justify-center space-x-5 m-5">
-            <form action="/home/work/end" method="POST">
+        <div class="flex justify-center m-5">
+            <form action="/home/work/breakend" method="POST">
                 @csrf
-                <input type="hidden" name="work_end" value="{{ now() }}"/>
-                <div class="border-4 border-solid border-blue-500 bg-blue-50 p-2 m-3 font-mono text-center text-5xl">
-                    <input type="submit" value="退勤" class="cursor-pointer">
-                </div>
-            </form>
-
-            <form action="/home/work/break" method="POST">
-                @csrf
-                <input type="hidden" name="break_start" value="{{ now() }}"/>
-                <div class="border-4 border-solid border-orange-500 bg-orange-50 p-2 m-3 font-mono text-center text-5xl">
-                    <input type="submit" value="休憩" class="cursor-pointer">
-                </div>
+                <input type="hidden" name="break_end" value="{{ now() }}"/>
+              <div class="border-4 border-solid border-orange-500 bg-orange-50 p-2 m-3 font-mono text-center text-5xl">
+                <input type="submit" value="休憩終了">
+              </div>
             </form>
         </div>
     </main>
