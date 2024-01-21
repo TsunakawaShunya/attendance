@@ -28,7 +28,7 @@ class WorkController extends Controller
     // 出勤開始時刻をポスト
     public function postWorkStart(Request $request) {
         $work_start = $request->input('work_start');
-
+        //dd($work_start);
         $work = new Work();
         $work->user_id = Auth::id();
         $work->work_start = $work_start;
@@ -45,7 +45,8 @@ class WorkController extends Controller
     // 休憩開始時刻をポスト
     public function postBreakStart(Request $request) {
         $break_start = $request->input('break_start');
-
+        //dd($break_start);
+        
         $work = Work::where("user_id", Auth::id())->latest("updated_at")->first();
         $work->break_start = $break_start;
         $work->save();
@@ -56,7 +57,7 @@ class WorkController extends Controller
     // 休憩終了時刻をポスト
     public function postBreakEnd(Request $request) {
         $break_end = $request->input('break_end');
-
+        //dd($break_end);
         $work = Work::where("user_id", Auth::id())->latest("updated_at")->first();
         $work->break_end = $break_end;
         $work->save();
@@ -73,7 +74,8 @@ class WorkController extends Controller
     // 出勤終了時刻をポスト
     public function postWorkEnd(Request $request) {
         $work_end = $request->input('work_end');
-
+        //dd($work_end);
+        
         $work = Work::where("user_id", Auth::id())->latest("updated_at")->first();
         $work->work_end = $work_end;
         $work->save();
