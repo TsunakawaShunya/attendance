@@ -20,7 +20,7 @@ WORKTIME
   <img src="https://img.shields.io/badge/-Amazon%20aws-232F3E.svg?logo=amazon-aws&style=plastic">
 
 ## ディレクトリ構成
-laravelによる構成が基本となっている
+laravelによる構成が基本となっている．
 - マイグレーションファイル /attendance/database/migrations
 - モデル /attendance/app/Models
 - コントローラー /attendance/app/Http/Controllers
