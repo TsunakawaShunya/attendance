@@ -26,3 +26,9 @@ laravelによる構成が基本となっている．
 - コントローラー /attendance/app/Http/Controllers
 - ビュー /attendance/resources/views
 - ルーティング /attendance/routes/web.php
+
+## 使い方
+
+## 工夫した点
+
+## テストユーザー
