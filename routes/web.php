@@ -39,4 +39,7 @@ Route::post('/home/work/breakend', [WorkController::class, 'postBreakEnd'])->nam
 Route::post('/home/work/end', [WorkController::class, 'postWorkEnd'])->name('home.postWorkEnd');
 Route::get('/home/work/end', [WorkController::class, 'showWorkEnd'])->name('home.showWorkEnd');
 
+Route::get('/manage', [WorkController::class, 'showManage']);
+Route::post('/manage/post', [WorkController::class, 'postManage']);
+
 require __DIR__.'/auth.php';

@@ -19,9 +19,9 @@
             <form id="breakEndForm" action="/home/work/breakend" method="POST">
                 @csrf
                 <input type="hidden" name="break_end" id="break_end"/>
-              <div class="border-4 border-solid border-orange-500 bg-orange-50 p-2 m-3 font-mono text-center text-5xl">
-                <input type="submit" value="休憩終了" onclick="submit_breakEndForm()">
-              </div>
+                <div class="border-4 border-solid border-orange-500 bg-orange-50 p-2 m-3 font-mono text-center text-5xl">
+                    <input type="submit" value="休憩終了" onclick="submit_breakEndForm()">
+                </div>
             </form>
         </div>
     </main>

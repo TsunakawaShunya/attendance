@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Work;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
@@ -83,5 +84,22 @@ class WorkController extends Controller
         return redirect('/home/work/end');
     }
 
-
+    // 給料の更新post
+    public function postManage(Request $request) {
+        $input = $request['user'];
+        //dd($input);
+        $hourly_wage = $input['hourly_wage'];
+        $monthly_wage = $input['monthly_wage'];
+        
+        $user = User::find(Auth::id());
+        $user->hourly_wage = $hourly_wage;
+        $user->monthly_wage = $monthly_wage;
+        
+        return redirect ('/home');
+    }
+    
+    // 給料の更新show
+    public function showManage() {
+        return view("work.manage");
+    }
 }
