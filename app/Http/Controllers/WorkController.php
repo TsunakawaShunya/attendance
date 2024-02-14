@@ -17,8 +17,9 @@ class WorkController extends Controller
     // 出勤ログへ
     public function showLog() {
         $works = Work::where("user_id", Auth::id())->orderBy("work_start", "desc")->get();      // 新しい順に取り出す
+        $user = User::find(Auth::id());
         //dd($works);
-        return view("work.log")->with(["works" => $works]);
+        return view("work.log")->with(["works" => $works, "user" => $user]);
     }
     
     // 出勤
@@ -94,7 +95,8 @@ class WorkController extends Controller
         $user = User::find(Auth::id());
         $user->hourly_wage = $hourly_wage;
         $user->monthly_wage = $monthly_wage;
-        
+        //dd($user->monthly_wage);
+        $user->save();
         return redirect ('/home');
     }
     

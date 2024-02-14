@@ -15,7 +15,13 @@
             @if($work->work_start != null && $work->work_end != null)
                 @php
                     $currentMonth = \Carbon\Carbon::parse($work->work_start)->format('Y-m');
-                    $workedMinutes = (\Carbon\Carbon::parse($work->work_end)->diffInMinutes(\Carbon\Carbon::parse($work->work_start))) - (\Carbon\Carbon::parse($work->break_end)->diffInMinutes(\Carbon\Carbon::parse($work->break_start)));  // 働いた時間（分）
+                    // 働いた時間（分）
+                    if($work->break_start && $work->break_end){
+                        $workedMinutes = (\Carbon\Carbon::parse($work->work_end)->diffInMinutes(\Carbon\Carbon::parse($work->work_start))) - (\Carbon\Carbon::parse($work->break_end)->diffInMinutes(\Carbon\Carbon::parse($work->break_start)));
+                    } else{
+                        $workedMinutes = (\Carbon\Carbon::parse($work->work_end)->diffInMinutes(\Carbon\Carbon::parse($work->work_start)));
+                    }
+                    // 一日の給料
                     $dailyEarnings = floor(Auth::user()->hourly_wage * ($workedMinutes / 60)); // 切り捨て
                 @endphp
                 
@@ -23,7 +29,7 @@
                     @if($previousMonth != null)
                         <tr>
                             <td class="font-bold mb-2">合計</td>
-                            <td class="text-xl">{{ $totalMonthlyEarnings }} 円</td>
+                            <td class="text-xl">{{ $totalMonthlyEarnings + $user->monthly_wage }} 円</td>
                         </tr>
                         </table>
                     @endif
@@ -66,7 +72,7 @@
         @if($previousMonth != null)
             <tr>
                 <td class="font-bold mb-2">合計</td>
-                <td class="text-xl">{{ $totalMonthlyEarnings }} 円</td>
+                <td class="text-xl">{{ $totalMonthlyEarnings + $user->monthly_wage }} 円</td>
             </tr>
             </table>
         @endif
